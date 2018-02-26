@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Davids Slider</title>
+ <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+
+
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+  <!-- HEADER --> 
+  <header> 
+     <nav class="navbar navbar-dafault text-center">
+        <h1>My First 3 Photo Slider</h1>
+     </nav>
+  </header>
+
+<body>
+
+  <div class="container-fluid start">
+
+      <!-- BOX FOR PHOTOS -->    
+      <div class="images-box text-center">
+
+        <div class="onlyImg">     
+           <img src="img/barcelona.jpg" alt="" class="imgs img1" id="">
+           <img src="img/praha2.JPG" alt="" class="imgs img2" id="">
+           <img src="img/cypress_forest_hilandar.jpg" alt="" class="imgs img3" id="">
+        </div>
+
+        <div class="before">
+          <img src="img/arrow-left.png" class="left" alt="arrow-left">
+        </div>
+        <div class="after">
+          <img src="img/arrow-right.png"  class="right"  alt="arrow-right">
+        </div>
+
+      </div>
+
+    <!-- BUTTONS FOR PLAY AND PAUSE -->
+    <div class="row">
+      <div class="btnBox col-sm-4 col-sm-offset-4">
+        <button type="button" class="btn btn-warning btn-lg active pause" id="btn">Pause</button>
+        <button type="button" class="btn btn-warning btn-lg active play" id="btn"> Play </button>
+      </div>
+    </div>
+ 
+   <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+    
+  </div>
+  </body>
+</html>
