@@ -23,7 +23,9 @@ h1 {
 }
 
 .imgs {
-  border-left: 1px solid white;
+  box-sizing: border-box;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
   top:0;
   position: absolute;
   margin: 0;
@@ -32,29 +34,29 @@ h1 {
   width: 600px;
   display: inline;
   transition-timing-function: ease-in-out;
-  transition: all 2s;
+  transition: all 3s;
   user-select: none;
 }
 
-.img1{
+.img0{
   left:0;
   z-index: 3;
 }
 
-.img2{
+.img1{
   left: -600px;
   z-index: 0;
 }
 
-.img3{
+.img2{
   left: 600px;
   z-index: 0;
 }
 
-.imga1{
+/*.imga1{
   left:0;
   z-index: 3;
-}
+}*/
 
 .imga2{
   left: -600px;
@@ -131,8 +133,15 @@ h1 {
   margin: 15px;
   background-color: #1e2f2f;
   width: 100px;
+  box-shadow: 1px 1px 1px black;
+  cursor:pointer;
 }
 #btn:hover{
   background-color: #001a1a;
   transition: 0.2s;
+}
+#btn:focus{
+  outline-style: none;
+  box-shadow: none;
+  color: grey;
 }
