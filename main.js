@@ -78,10 +78,26 @@ $.fn.pauseSlider = function() {
 
 
 $.fn.toTheRight = function() {
+    // $.fn.toTheRight= function(){
     $('.img2').removeClass('img2').addClass('imga2'); //imga2 is helping class (prevent immediately changing img1 to img2 to img0)
     $('.img0').removeClass('img0').addClass('img2');
     $('.img1').removeClass('img1').addClass('img0');
     $('.imga2').removeClass('imga2').addClass('img1');
+    // console.log(imgs);
+    // i=0;
+    // // $('.img0').css('left','0px');
+    // // $('.img1').css('left','-600px');
+    // // $('.img2').css('left','600px');
+    // $.each(imgs, function(i) {
+    //     console.log(imgs);
+    //     console.log(i);
+    // $('.img' + (i + 2)).removeClass('img' + (i + 2)).addClass('imga2');
+    // $('.img' + i).removeClass('img' + i).addClass('img' + (i + 2));
+    // $('.img' + (i + 1)).removeClass('img' + (i + 1)).addClass('img' + i);
+    // $('.imga2').removeClass('imga2').addClass('img' + (i + 1));
+    // $(this).addClass('img'+(i))
+    // })
+
 }
 
 $.fn.toTheLeft = function() {
@@ -90,4 +106,3 @@ $.fn.toTheLeft = function() {
     $('.img2').removeClass('img2').addClass('img0');
     $('.imga3').removeClass('imga3').addClass('img2');
 }
-
