@@ -53,6 +53,10 @@ h1 {
   z-index: 0;
 }
 
+/*.imga1{
+  left:0;
+  z-index: 3;
+}*/
 
 .imga2{
   left: -600px;
@@ -125,18 +129,18 @@ h1 {
   justify-content: center;
 }
 
-.btns {
+#btn1, #btn2 {
   margin: 15px;
   background-color: #1e2f2f;
   width: 100px;
   box-shadow: 1px 1px 1px black;
   cursor:pointer;
 }
-.btns:hover{
+#btn1:hover, #btn2:hover{
   background-color: #001a1a;
   transition: 0.2s;
 }
-.btns:focus{
+#btn1:focus, #btn2:focus{
   outline-style: none;
   box-shadow: none;
   color: grey;
