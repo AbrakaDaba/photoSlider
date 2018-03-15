@@ -1,90 +1,108 @@
+let imgs = $('.imgs');
 let before = $('.before');
 let after = $('.after');
-let imgs = $('.imgs');
-let play = $('.play');
-let pause = $('.pause');
 
-after.on('click', movingRight);
-before.on('click', movingLeft);
-play.on('click', playSlider);
-pause.on('click', pauseSlider);
+before.click(function() {
+    $.fn.movingLeft();
+});
 
-// $("body").load(function() {     // jquery - ne funkcioniše
-//   playSlider()
-// });
+after.click(function() {
+    $.fn.movingRight();
+});
 
-document.getElementsByTagName("body")[0].onload = function() { //JS funkcioniše
-  playSlider()
-  console.log(play);
+$('.play').click(function() {
+    $.fn.playSlider();
+})
+
+$('.pause').click(function() {
+    $.fn.pauseSlider();
+})
+
+
+$('body').ready(function() {
+    $.fn.playSlider();
+})
+
+let aftr = function(){
+    after.click(function() {
+        $.fn.movingRight()
+    })
+}
+
+
+let bfr = function() {
+    before.click(function() {
+        $.fn.movingLeft()
+    })
+};
+
+imgs.each(function(i) {
+    $(this).addClass('img' + (i))
+})
+
+
+$.fn.movingRight = function() { //Right Arrow Function
+    $.fn.pauseSlider();
+    after.off('click');
+    console.log(after);
+    $.fn.toTheRight();
+    setTimeout(aftr, 3000);
+}
+
+
+$.fn.movingLeft = function() { //Left Arrow Function
+    $.fn.pauseSlider();
+    before.off('click');
+    $.fn.toTheLeft();
+    setTimeout(bfr, 3000);
 };
 
 
-function movingRight() { //Right Arrow Function
-  pauseSlider();
-  after.off('click');
-  console.log(after);
-  toTheRight()
-  setTimeout(function() {
-
-  after.on('click', movingRight);
-  }, 3000);
-}
-
-
-function movingLeft() { //Left Arrow Function
-  pauseSlider();
-  before.off('click');
-  toTheLeft();
-  setTimeout(function() {
-
-  before.on('click', movingLeft);
-  }, 3000);
-  imgs.each(function(e) { // Just for testing changing classes...
-    console.log(imgs[e]);
-  });
-};
-
-
-function playSlider() {
-  plays(0);
-}
-
-function pauseSlider() {
-  plays(1);
-}
-
-
-function plays(x) {
-  // pause.on('click', pauseSlider);
-  // play.on('click');
-  if (x == 0) {
-    play.off('click');
-    toTheRight();
+$.fn.playSlider = function() {
+    // after.off('click');
+    console.log(imgs);
+    $.fn.toTheRight();
+    $('.pause').prop("disabled", false);
+    $('.play').prop("disabled", true);
     myInterval = setInterval(function() {
-      toTheRight()
-      // document.querySelector(".play").on
-      // play.on('click');
-    }, 4000);
-  }
-  if (x == 1) {
+    $.fn.toTheRight(); 
+    }, 3500);
+}
+
+$.fn.pauseSlider = function() {
     clearInterval(myInterval);
-    // pause.off('click');
-    play.on('click', playSlider);
-    console.log(play);
-  }
+    $('.play').prop("disabled", false);
+    $('.pause').prop("disabled", true);
+    console.log(imgs);
 }
 
 
-function toTheRight() {
-  $('.img3').removeClass('img3').addClass('imga2');
-  $('.img1').removeClass('img1').addClass('img3');
-  $('.img2').removeClass('img2').addClass('img1')
-  $('.imga2').removeClass('imga2').addClass('img2');
+$.fn.toTheRight = function() {
+    // $.fn.toTheRight= function(){
+    $('.img2').removeClass('img2').addClass('imga2'); //imga2 is helping class (prevent immediately changing img1 to img2 to img0)
+    $('.img0').removeClass('img0').addClass('img2');
+    $('.img1').removeClass('img1').addClass('img0');
+    $('.imga2').removeClass('imga2').addClass('img1');
+    // console.log(imgs);
+    // i=0;
+    // // $('.img0').css('left','0px');
+    // // $('.img1').css('left','-600px');
+    // // $('.img2').css('left','600px');
+    // $.each(imgs, function(i) {
+    //     console.log(imgs);
+    //     console.log(i);
+    // $('.img' + (i + 2)).removeClass('img' + (i + 2)).addClass('imga2');
+    // $('.img' + i).removeClass('img' + i).addClass('img' + (i + 2));
+    // $('.img' + (i + 1)).removeClass('img' + (i + 1)).addClass('img' + i);
+    // $('.imga2').removeClass('imga2').addClass('img' + (i + 1));
+    // $(this).addClass('img'+(i))
+    // })
+
 }
 
-function toTheLeft() {
-  $('.img2').removeClass('img2').addClass('imga3')
-  $('.img1').removeClass('img1').addClass('img2');
-  $('.img3').removeClass('img3').addClass('img1');
-  $('.imga3').removeClass('imga3').addClass('img3');
+$.fn.toTheLeft = function() {
+    $('.img1').removeClass('img1').addClass('imga3'); //imga3 is helping class (prevent immediately changing img1 to img2 to img0)
+    $('.img0').removeClass('img0').addClass('img1');
+    $('.img2').removeClass('img2').addClass('img0');
+    $('.imga3').removeClass('imga3').addClass('img2');
 }
