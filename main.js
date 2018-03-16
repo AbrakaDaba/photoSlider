@@ -38,7 +38,8 @@ let bfr = function() {
 
 document.getElementsByTagName('body')[0].onload= function(){
     $.fn.playSlider();
-    
+}
+
 imgs.each(function(i) {
     $(this).addClass('img' + (i))
 })
